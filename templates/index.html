@@ -15,7 +15,7 @@
 
     <div class="card todo__headerContainer">
         <p class="font-weight-bold">What are we doing today? 🔥</p>
-        <form class="todo__form">
+        <form class="todo__form" action="{{ url_for('add') }}" method="POST">
             <input placeholder="Write task here..." type="text" name="todoitem">
             <input class="btn btn-info" type="submit" value="➕ Add Item">
         </form>
@@ -26,14 +26,17 @@
             <h2 class="todo__itemHeader">To Do's 🕙</h2>
             
             <ul class="todo__container">
+                {% for todo in incomplete %}
+
                 <li class="todo__item">
-                    <p>My Todo X</p>
-                    <a class="btn btn-outline-success" href="#">
+                    <p>{{ todo.text }}</p>
+                    <a class="btn btn-outline-success" href="#" class="">
                         Complete ➡️
                     </a>
-                    <a class="todo__close" href="#">❌</a>
+                    <a class="todo__close" href="#" class="">❌</a>
                 </li>
 
+                {% endfor %}
             </ul>
         </div>
 
@@ -43,10 +46,10 @@
             <ul class="todo__container">
                 <li class="todo__item">
                     <p>My Finished Task X</p>
-                    <a class="btn btn-outline-secondary" href="#">
+                    <a class="btn btn-outline-secondary" href="#" class="">
                         ⬅️ Undo
                     </a>
-                    <a class="todo__close" href="#">❌</a>
+                    <a class="todo__close" href="#" class="">❌</a>
                 </li>
 
             </ul>
